@@ -1,0 +1,71 @@
+/*
+* @Author: zhaohongmei
+* @Date:   2016-08-02 14:15:20
+* @Last Modified by:   zhaohongmei
+* @Last Modified time: 2016-08-08 18:11:54
+*/
+body {
+  background: #406cb5;
+}
+
+input[type=submit].loginButton {
+  width: 100%;
+  background-color: #fc8a03;
+  text-align: center;
+  border: 1px solid #fc8a03;
+  color: #fff;
+  font-family: microsoft yahei;
+}
+
+.loginBox {
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px 40px 30px;
+  border-radius: 4px;
+}
+
+.abCenter img {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  margin-left: -120px;
+}
+
+.inputGroup {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.inputGroup input[type=text] {
+  padding: 0.6rem .5rem 0.6rem 2.5rem;
+}
+
+.loginIcon {
+  position: absolute;
+  top: 1rem;
+  left: 0.8rem;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.copyRight {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  line-height: 1.2;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.back {
+  color: #fff;
+  margin: 10px;
+  line-height: 3;
+  height: 3rem;
+  overflow: hidden;
+}

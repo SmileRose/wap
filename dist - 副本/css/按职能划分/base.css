@@ -1,0 +1,207 @@
+@charset "utf-8";
+*{
+  margin: 0;
+  padding: 0;
+}
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;vertical-align:baseline;font:inherit;-webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;}
+address,caption,cite,code,dfn,em,strong,th,var{font-weight:400;font-style:normal}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+h1,h2,h3,h4,h5,h6{font-weight:400;font-size:100%}
+q:after,q:before{content:' '}
+html{line-height:1;}
+body{zoom: 1;webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;  }
+ol,ul{list-style:none}
+a:active,a:hover,a:link,a:visited{text-decoration:none;appearance:none;
+-moz-appearance:none;
+-webkit-appearance:none; ;-webkit-tap-highlight-color:transparent}
+*{-webkit-text-size-adjust: none;}
+html{-webkit-overflow-scrolling:touch;overflow:auto;background:#f5f5f5;}
+::-webkit-scrollbar {width: 0}
+/* 去掉 table cell 的边距并让其边重合 */
+table{border-collapse:collapse;border-spacing:0}
+caption,td,th{vertical-align:middle;text-align:left;font-weight:400}
+blockquote,q{quotes:none}
+blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}
+a,img{border:0}
+abbr,acronym{border:0}
+
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+img{filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);}
+fieldset,img{border:0}
+input,textarea{border: 0; -webkit-appearance: none;}
+img{-webkit-touch-callout: none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader (enabled=true);}/*长按不保存图片*/
+
+
+::selection { background: #a4dcec; }
+::-moz-selection { background: #a4dcec; }
+::-webkit-selection { background: #a4dcec; }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #ccc;
+  font-style: normal;
+  color:#067fde;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+  font-style: normal;
+  color:#067fde;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ccc;
+  font-style: normal;
+  color:#067fde;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #ccc !important;
+  font-style: normal;
+  color:#067fde;
+}
+/*解决input北京偏黄*/
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+
+
+/*input[type=text], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #F1F1F1;
+}*/
+
+/**/
+.png{
+  _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/folder/yourimage.png',sizingMethod='crop');
+}
+
+input, textarea {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/*输入框外阴影发光*/
+/*input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}*/
+
+input[type="button"]{
+  cursor: pointer;
+}
+
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong { font-weight: bold; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+.textHide{text-indent: -9999em}
+
+
+a,button,input,textarea{
+-webkit-tap-highlight-color: rgba(0,0,0,0;)
+-webkit-user-modify:read-write-plaintext-only;
+}
+
+/* 去除 ie6 & ie7 焦点点状线 */
+:focus,a:focus{outline:0}
+
+input::-webkit-input-placeholder{color:#AAAAAA;}
+input:focus::-webkit-input-placeholder{color:#EEEEEE;}
+/*禁用 radio 和 checkbox 默认样式*/
+input[type=radio]::-ms-check,
+input[type=checkbox]::-ms-check
+{
+display: none;
+}
+
+
+.diandian {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 这里修改为要显示的行数
+  -webkit-box-orient: vertical;
+}
+
+.opacity{
+  filter: Alpha(opacity=70);opacity: 0.7;
+}
+
+.block{display: block;}
+.inline{display: inline;}
+
+
+
+.font12{font-size:12px}
+.font13{font-size:13px}
+.font14{font-size:14px}
+.font16{font-size:16px}
+.font20{font-size:20px}
+.bold{font-weight: bold;}
+
+
+.indent2{text-indent:2em}
+.lh150{line-height:150%}
+.lh180{line-height:180%}
+.lh200{line-height:200%}
+.unl{text-decoration:underline}
+.no_unl{text-decoration:none}
+.textLeft{text-align:left}
+.textCenter{text-align:center}
+.textRight{text-align:right}
+.center{margin-right:auto;margin-left:auto}
+
+
+/* 设置浮动，减少浮动带来的 bug */
+.fl,.fr{display:inline}
+.fl{float:left}
+.fr{float:right}
+
+
+.clear{clear:both}
+.cl{clear:left}
+.cr{clear:right}
+.clearfix:after{clear:both;display:block;visibility:hidden;height:0;content:'.'}
+.clearfix{display:inline-block}
+
+.vm{vertical-align:center}
+.relative{position:relative}
+.absolute{position:absolute}
+.fixed{position:fixed}
+.abs-right{position:absolute;right:0}
+.zoom{zoom:1}
+
+/* 设置显示和隐藏，通常用来与 js 配合 */
+.hidden{visibility:hidden}
+.hide{display:none}
+.width{width: 100%;}
+.height{height:100%}

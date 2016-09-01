@@ -1,0 +1,71 @@
+/*
+* @Author: zhaohongmei
+* @Date:   2016-08-02 17:19:15
+* @Last Modified by:   zhaohongmei
+* @Last Modified time: 2016-08-08 14:56:45
+*/
+// .container {
+//     display: -moz-box;
+//     display: -webkit-box;
+//     display: box;
+//     display: -webkit-flex;
+//     display: -ms-flexbox;
+//     display: flex;
+//     padding: 8px;
+// }
+.flex {
+    -webkit-box-flex: 1;
+    display: table-cell;
+    vertical-align: middle;
+}
+.autoCenter {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.vContainer {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #CCC;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.copyRight {
+    position: relative;
+    // bottom: 50px;
+    // left: 0;
+    width: 100%;
+    p{
+        line-height: 1.4
+    }
+}
+.wrapper{
+    margin-top: 60px;
+}
+.navbar-data,.navbar-inverse{
+    background-color: #0e90d2;
+    border-color: #56aad5;
+}
+.navbar-inverse .navbar-brand{
+    color:#fff;
+}
+.navbar-inverse .navbar-collapse{
+    border-color: #2a86b5;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:#fff;
+}
+.welcome{
+    margin:10em 0 5em;
+    font-size: 3em;
+}

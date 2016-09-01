@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul id="checkOne">
+			<li>
+				<input type="checkbox" id="id0">
+				<label for="id0">测试1</label>
+			</li>
+			<li>
+				<input type="checkbox" id="id1">
+				<label for="id1">测试2</label>
+			</li>
+			<li>
+				<input type="checkbox" id="id2">
+				<label for="id2">测试3</label>
+			</li>
+			<li>
+				<input type="checkbox" id="id3">
+				<label for="id3">测试4</label>
+			</li>
+			<li>
+				<input type="checkbox" id="id4">
+				<label for="id4">测试5</label>
+			</li>
+			<li>
+				<input type="checkbox" id="id5">
+				<label for="id5">测试6</label>
+			</li>
+
+		</ul>
+
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+
+		<script>
+			$(function(){				 
+			  	$("#checkOne>li").on('click',function(){
+			  		var check = $(this).find("input[type=checkbox]"); 
+    	        	$(this).siblings('li').find("input[type=checkbox]").attr('checked',false);
+			  	});
+			})
+		</script>
+	</body>
+
+</html>

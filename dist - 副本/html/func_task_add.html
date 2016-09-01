@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>任务列表</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="Rose Zhao" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="email=no" />
+        <link rel="stylesheet" type="text/css" href="../css/base.css" />
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/common.css" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/animate.css" />
+        <!--[if lte IE 9]>
+        <script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
+        <![endif]-->
+        <!--[if lt IE 8]>
+        <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
+        <![endif]-->
+<body>
+        <!--head-->
+        <div class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
+                <div class="container">
+                        <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="index.html">后台数据管理系</a>
+                        </div>
+                        <div class="navbar-collapse collapse ">
+                                <ul class="nav navbar-nav navbar-right">
+                                        <li>
+                                                <a href="section.html">栏目管理</a>
+                                        </li>
+                                        <li>
+                                                <a href="task.html">任务管理</a>
+                                        </li>
+                                        <li>
+                                                <a href="">角色列表</a>
+                                        </li>
+                                        <li>
+                                                <a href="#life">工单系统查询</a>
+                                        </li>
+                                </ul>
+                        </div>
+                </div>
+        </div>
+        <!-- /header -->
+        <div class="wrapper">
+                <div class="layout">
+                        <div class="container">
+                                <form class="form-horizontal">
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">任务标题</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <input type="text" class="form-control"  />
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">任务内容</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <textarea class="form-control col-sm-10" rows="3"></textarea>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">抄送人</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <input type="number" class="form-control" />
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">优先级</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <select name="">
+                                                                <option value="">高</option>
+                                                                <option value="">中</option>
+                                                                <option value="">低</option>
+                                                        </select>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">需求时间</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <input type="date" class="form-control" />
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">数据类型</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <select name="">
+                                                                <option value="">添加数据</option>
+                                                                <option value="">功能优化</option>
+                                                                <option value="">低</option>
+                                                        </select>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">所属游戏</label>
+                                                <div class="checkbox col-sm-9 col-xs-9">
+                                                        <label class="checkbox-inline">
+                                                                <input type="checkbox" />
+                                                                三国威力加强版
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                                <input type="checkbox" />
+                                                                三国威力加强版
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                                <input type="checkbox" />
+                                                                皮卡丘
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                                <input type="checkbox" />
+                                                                赵云战纪
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                                <input type="checkbox" />
+                                                                武林外传
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">&nbsp;</label>
+                                                <div class="checkbox col-sm-9 col-xs-9">
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+                <div class="copyRight wow bounceInUp"  data-wow-delay="0.4s">
+                        <p>COPYRIGHT 2013-2016 Firevale..ALL RIGHTS RESERVED</p>
+                        <p>成都天象互动科技有限公司</p>
+                        <p>网络文化经营许可证：川网文许字【2014】1335-070号</p>
+                        <p>网站备案号：川ICP备14010235号-1</p>
+                        <p>客服电话：4000889936 客服QQ：800086778</p>
+                </div>
+        </div>
+        <!--导航条-->
+        <nav class="navBar">
+                <ul class="navbarNav">
+                        <li class="navli">
+                                <a href="func.html" title="">
+                                        <span class="navIcon"> <i class="fa fa fa-certificate"></i>
+                                        </span>
+                                        <span class="navText">功能</span>
+                                </a>
+                        </li>
+                        <li class="navli">
+                                <a href="data.html"  class="wow bounceInLeft">
+                                        <span class="navIcon"> <i class="fa fa-database"></i>
+                                        </span>
+                                        <span class="navText">数据</span>
+                                </a>
+                        </li>
+                        <li class="navli">
+                                <a href="javascript:void(0);" >
+                                        <span class="navIcon">
+                                                <i class="fa fa fa-location-arrow"></i>
+                                        </span>
+                                        <span class="navText">游戏</span>
+                                </a>
+                                <div class="barLlist">
+                                        <a href="赛尔号">赛尔号</a>
+                                        <a href="皮卡丘">皮卡丘</a>
+                                        <a href="三国1">三国1</a>
+                                        <a href="赵云战纪">赵云战纪</a>
+                                        <a href="武林外传">武林外传</a>
+                                        <a href="夏日甜心">夏日甜心</a>
+                                </div>
+                        </li>
+                        <li class="navli">
+                                <a href="javascript:void(0);">
+                                        <span class="navIcon">
+                                                <i class="fa fa-gear"></i>
+                                        </span>
+                                        <span class="navText">设置</span>
+                                </a>
+                                <div class="barLlist">
+                                        <a href="reset.html">密码重置</a>
+                                        <a href="login.html">退出</a>
+                                </div>
+                        </li>
+                </ul>
+        </nav>
+        <!-- 弹出层 Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                </div>
+                                <div class="modal-body">...</div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary">确定</button>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <!-- /弹出层 Modal -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/js/index.js"></script>
+        <script src="../js/js/wow.min.js"></script>
+        <script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        new WOW().init();
+};
+</script>
+</body>
+</html>
