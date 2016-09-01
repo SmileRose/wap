@@ -2,7 +2,7 @@
 * @Author: zhaohongmei
 * @Date:   2016-08-02 17:19:15
 * @Last Modified by:   zhaohongmei
-* @Last Modified time: 2016-08-08 14:56:45
+* @Last Modified time: 2016-08-22 17:06:11
 */
 // .container {
 //     display: -moz-box;
@@ -50,7 +50,7 @@
     }
 }
 .wrapper{
-    margin-top: 60px;
+    margin: 60px 0;
 }
 .navbar-data,.navbar-inverse{
     background-color: #0e90d2;
@@ -68,4 +68,7 @@
 .welcome{
     margin:10em 0 5em;
     font-size: 3em;
+}
+.tab-start{
+    padding:10px;
 }
