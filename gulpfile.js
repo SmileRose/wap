@@ -89,7 +89,7 @@ gulp.task('html', function() {
         .pipe(rev()) //版本控制
         .pipe(gulp.dest('dist/html'))
          .pipe(htmlmin(options)) //压缩html文件
-         .pipe(gulp.dest('dist/'))
+         .pipe(gulp.dest('dist/html/min'))
         .pipe(notify({ message: 'html task complete' }))
         .pipe(browserSync.stream()); //浏览器进行刷新
 });
