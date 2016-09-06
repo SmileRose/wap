@@ -6,7 +6,6 @@ body, html {
 a {
     color: #555
 }
-
 $heading:(h1:2rem,h2:1.5rem,h3:1.2rem,h4:1rem,h5:0.8rem);
 @each $header, $size in $heading{
     #{$header}{
@@ -14,7 +13,6 @@ $heading:(h1:2rem,h2:1.5rem,h3:1.2rem,h4:1rem,h5:0.8rem);
         font-weight:bold;
     }
 }
-
 @media (min-width:320px) and (max-width:768px) {
   .dl-horizontal{
     margin-bottom: 10px
@@ -131,7 +129,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     height: 49px;
     line-height: 49px;
     z-index: 1010;
-
     .navbarNav {
         display: -o-box;
         display: -ms-box;
@@ -145,7 +142,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
         padding: 0 8px;
         text-align: center;
         background-color: #0e90d2;
-
         a {
             color: #FFF;
         }
@@ -159,7 +155,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
             -ms-flex-negative: 1;
             -webkit-flex-shrink: 1;
             flex-shrink: 1;
-
             .barLlist>a {
                 display: block;
                 border-bottom: 1px solid #0b6fa2;
@@ -179,7 +174,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     padding: 0 10px;
     z-index: 999;
     background-color: #0e90d2;
-
     .headerTitle {
         margin: 0 20%;
         font-weight: 400;
@@ -192,7 +186,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
         font-size: 2rem;
         color: #fff;
         line-height: 50px;
-
         a {
             color: #fff;
             font-size: 2rem;
@@ -232,7 +225,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     -webkit-animation: bounceInUp .5s ease;
     animation: bounceInUp .5s ease;
 }
-
 /*foot动画*/
 @-webkit-keyframes bounceInUp {
     0%, 60%, 75%, 90%, 100% {
@@ -361,7 +353,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     position: absolute;
     right: 10px;
     top: 0;
-
     a {
         color: #fff;
         display: block;
@@ -425,7 +416,6 @@ button, input:not([type=radio]):not([type=checkbox]), select {
 .bsbg .bg-danger{
     margin:10px 0;
     padding:15px;
-
 }
 .bsbg .bg-primary{
     color:#fff;

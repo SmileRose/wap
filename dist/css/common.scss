@@ -15,7 +15,23 @@ $heading:(h1:2rem,h2:1.5rem,h3:1.2rem,h4:1rem,h5:0.8rem);
     }
 }
 
-
+@media (min-width:320px) and (max-width:768px) {
+  .dl-horizontal{
+    margin-bottom: 10px
+  }
+        .dl-horizontal dt {
+                float: left;
+                width: 80px;
+                overflow: hidden;
+                clear: left;
+                text-align: right;
+                text-overflow: ellipsis;
+                white-space: nowrap
+        }
+        .dl-horizontal dd {
+                margin-left: 90px
+        }
+}
 .abCenter {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -413,4 +429,22 @@ button, input:not([type=radio]):not([type=checkbox]), select {
 }
 .bsbg .bg-primary{
     color:#fff;
+}
+i.fa{
+    padding-right: 10px;
+}
+.panel-title>a{
+    width:100%;
+    display:block;
+    height:100%
+}
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+ display: block;
+ height: 0;
+ overflow-y: hidden;
+}
+.tab-content > .active,
+.pill-content > .active {
+ height: auto;
 }
