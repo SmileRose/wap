@@ -2,28 +2,31 @@
 <html>
 <head>
   <title>数据检查与修复</title>
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="Rose Zhao" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta content="yes" name="apple-mobile-web-app-capable">
-  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="format-detection" content="email=no" />
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="../css/base.css" />
-  <link rel="stylesheet" type="text/css" href="../css/common.css" />
-  <link rel="stylesheet" type="text/css" href="../css/index.css" />
-  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
-  <!--datetimepicker样式表-->
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css">
-  <!--[if lte IE 9]>
-  <script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
-  <![endif]-->
-  <!--[if lt IE 8]>
-  <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
-  <![endif]-->
+  <!--公共头部-->
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="Rose Zhao" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="email=no" />
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/base.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<link rel="stylesheet" type="text/css" href="../css/animate.css" />
+<!--[if lte IE 9]>
+<script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
+<![endif]-->
+<!--[if lt IE 8]>
+<script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
+<![endif]-->
+<!--/公共头部-->
+
 <body>
   <!--header-->
   <div class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
@@ -367,57 +370,15 @@
     </div>
   </div>
   <!--导航条-->
-  <nav class="navBar">
-        <ul class="navbarNav">
-                <li class="navli">
-                        <a href="func.html" title="">
-                                <span class="navIcon"> <i class="fa fa fa-certificate"></i>
-                                </span>
-                                <span class="navText">功能</span>
-                        </a>
-                </li>
-                <li class="navli">
-                        <a href="data.html" >
-                                <span class="navIcon"> <i class="fa fa-database"></i>
-                                </span>
-                                <span class="navText">数据</span>
-                        </a>
-                </li>
-                <li class="navli">
-                        <a href="javascript:void(0);">
-                                <span class="navIcon">
-                                        <i class="fa fa fa-location-arrow"></i>
-                                </span>
-                                <span class="navText">游戏</span>
-                        </a>
-                        <div class="barLlist">
-                                <a href="赛尔号">赛尔号</a>
-                                <a href="皮卡丘">皮卡丘</a>
-                                <a href="三国1">三国1</a>
-                                <a href="赵云战纪">赵云战纪</a>
-                                <a href="武林外传">武林外传</a>
-                                <a href="夏日甜心">夏日甜心</a>
-                        </div>
-                </li>
-                <li class="navli">
-                        <a href="javascript:void(0);">
-                                <span class="navIcon">
-                                        <i class="fa fa-gear"></i>
-                                </span>
-                                <span class="navText">设置</span>
-                        </a>
-                        <div class="barLlist">
-                                <a href="reset.html">密码重置</a>
-                                <a href="login.html">退出</a>
-                        </div>
-                </li>
-        </ul>
-</nav>
-<!--/导航条-->
+  <!--公共js-->
+  <!-- js引入 -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/wow.min.js"></script>
+<!-- /js引入 -->
 
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/index.js"></script>
+  <!--/公共js-->
   <script src='../js/bootstrap-datetimepicker.min.js'></script>
   <script>
         $('.form_date').datetimepicker({ //日期
