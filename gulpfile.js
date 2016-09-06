@@ -5,7 +5,8 @@
  * step4: npm install gulp --save-dev  本地安装（生成node_modules文件夹）
  * step5 gulp -v 检测安装情况 （正常情况应该包含本地和全局两个信息）
  * *
- * $ npm install gulp-ruby-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-imagemin imagemin-pngquant gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-rev-append gulp-utf8-convert gulp-cache del  gulp-htmlmin  browser-sync gulp-file-include --save-dev
+ * $ npm install gulp-ruby-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-imagemin imagemin-pngquant gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-rev-append gulp-utf8-convert gulp-cache del  gulp-htmlmin  browser-sync gulp-file-include --save-dev
+ 使用npm install --save-dev jshint gulp-jshint
  */
 // Load plugins
 //css
@@ -13,7 +14,7 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'), //sass
     autoprefixer = require('gulp-autoprefixer'), //各大浏览器前缀
     minifycss = require('gulp-minify-css'), //压缩css
-    jshint = require('gulp-jshint'),
+
     //img
     imagemin = require('gulp-imagemin'), //压缩img
     pngquant = require('imagemin-pngquant'),
@@ -22,6 +23,8 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     //js
+
+    jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     notify = require('gulp-notify'),
     rev = require('gulp-rev-append'), //页面的引用添加版本号，清除页面引用缓存
@@ -50,9 +53,10 @@ fileinclude = require('gulp-file-include'), // include 文件用
 // js
 gulp.task('js', function() {
     return gulp.src('src/**/*.js')
-          //.pipe(jshint())
-        // .pipe(jshint.reporter('default')) // 输出检查结果
-        .pipe(gulp.dest('dist/js'))
+          .pipe(jshint())
+        .pipe(jshint.reporter('default')) // 输出检查结果
+        .pipe(gulp.dest('dist/'))
+
         .pipe(concat('main.js')) //让所有的js压缩到main里面
         .pipe(gulp.dest('dist/js')) //保存到js目录下
         .pipe(uglify()) //压缩
@@ -71,7 +75,7 @@ gulp.task('img', function() {
             multipass: true, //类型：Boolean 默认：false 多次优化svg直到完全优化
             use: [pngquant()] //使用pngquant深度压缩png图片的imagemin插件
         })))
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist/img/'))
         .pipe(notify({ message: 'img task complete' }))
         .pipe(browserSync.stream()); //浏览器进行刷新
 });
