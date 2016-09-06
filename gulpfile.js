@@ -5,7 +5,7 @@
  * step4: npm install gulp --save-dev  本地安装（生成node_modules文件夹）
  * step5 gulp -v 检测安装情况 （正常情况应该包含本地和全局两个信息）
  * *
- * $ npm install gulp-ruby-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-imagemin imagemin-pngquant gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-rev-append gulp-utf8-convert gulp-cache del  gulp-htmlmin  browser-sync --save-dev
+ * $ npm install gulp-ruby-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-imagemin imagemin-pngquant gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-rev-append gulp-utf8-convert gulp-cache del  gulp-htmlmin  browser-sync gulp-file-include --save-dev
  */
 // Load plugins
 //css
@@ -28,9 +28,10 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     htmlmin = require('gulp-htmlmin'),
     del = require('del'),
+    fileinclude = require('gulp-file-include'),// include 文件用
     utf8Convert = require('gulp-utf8-convert');
    var browserSync = require('browser-sync').create(); //浏览器刷新必备
-// fileinclude = require('gulp-file-include'),// include 文件用
+fileinclude = require('gulp-file-include'),// include 文件用
 //  template = require('gulp-template'),//替换变量以及动态html用
 // css
 gulp.task('css', function() {
@@ -87,6 +88,10 @@ gulp.task('html', function() {
     };
     gulp.src('src/html/*.html')
         .pipe(rev()) //版本控制
+        .pipe(fileinclude({ //include文件
+                  prefix: '@@',
+                  basepath: '@file'
+                }))
         .pipe(gulp.dest('dist/html'))
          .pipe(htmlmin(options)) //压缩html文件
          .pipe(gulp.dest('dist/html/min'))
