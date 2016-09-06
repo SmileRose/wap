@@ -18,6 +18,8 @@
         <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="../css/animate.css" />
         <link rel="stylesheet" type="text/css" href="../css/checkbox.css" />
+        <!--datetimepicker样式表-->
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css">
         <!--[if lte IE 9]>
         <script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
         <![endif]-->
@@ -79,7 +81,7 @@
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">优先级</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <select name="">
+                                                        <select name="" class="form-control">
                                                                 <option value="">高</option>
                                                                 <option value="">中</option>
                                                                 <option value="">低</option>
@@ -89,7 +91,7 @@
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">需求时间</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <input type="date" class="form-control" />
+                                                        <input type="date" class="form-control" id="datatime" />
                                                 </div>
                                         </div>
                                         <div class="form-group">
@@ -193,10 +195,22 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/js/index.js"></script>
 <script src="../js/js/wow.min.js"></script>
+        <script src='../js/bootstrap-datetimepicker.min.js'></script>
 <script>
 if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
         new WOW().init();
 };
+
+
+$('#datatime').datetimepicker({//日期
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayBtn: true,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
 </script>
 </body>
 </html>

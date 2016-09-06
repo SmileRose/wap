@@ -15,7 +15,23 @@ $heading:(h1:2rem,h2:1.5rem,h3:1.2rem,h4:1rem,h5:0.8rem);
     }
 }
 
-
+@media (min-width:320px) and (max-width:768px) {
+  .dl-horizontal{
+    margin-bottom: 10px
+  }
+        .dl-horizontal dt {
+                float: left;
+                width: 80px;
+                overflow: hidden;
+                clear: left;
+                text-align: right;
+                text-overflow: ellipsis;
+                white-space: nowrap
+        }
+        .dl-horizontal dd {
+                margin-left: 90px
+        }
+}
 .abCenter {
     display: -ms-flexbox;
     display: -webkit-flex;
