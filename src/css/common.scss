@@ -430,3 +430,21 @@ button, input:not([type=radio]):not([type=checkbox]), select {
 .bsbg .bg-primary{
     color:#fff;
 }
+i.fa{
+    padding-right: 10px;
+}
+.panel-title>a{
+    width:100%;
+    display:block;
+    height:100%
+}
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+ display: block;
+ height: 0;
+ overflow-y: hidden;
+}
+.tab-content > .active,
+.pill-content > .active {
+ height: auto;
+}
