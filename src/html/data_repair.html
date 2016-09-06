@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="../css/common.css" />
   <link rel="stylesheet" type="text/css" href="../css/index.css" />
   <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css">
   <!--[if lte IE 9]>
   <script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
   <![endif]-->
@@ -65,7 +66,7 @@
     <div class="container">
       <!--第一个-->
       <div class="panel panel-danger panleMargin">
-        <div class="panel-heading bold">三国威力加强版</div>
+        <div class="panel-heading bold">数据修复类型</div>
         <div class="panel-body">
           <ul id="myTab" class="nav nav-tabs">
             <li class="active">
@@ -75,118 +76,154 @@
               <a href="#tab1" data-toggle="tab">全区数据</a>
             </li>
           </ul>
-        </li>
-      </ul>
-      <div id="myTabContent" class="tab-content tab-start">
-        <div class="tab-pane fade in active" id="tab0">
-          <div class="form-horizontal">
-            <div class="form-group">
-              <div class="col-sm-3 col-xs-4 text-right">选择时间</div>
-              <div class="col-sm-9 col-xs-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="请选择时间"  />
+          <div id="myTabContent" class="tab-content tab-start">
+            <div class="tab-pane fade in active" id="tab0">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-sm-3 col-xs-4 text-right">选择日期</div>
+                  <div class="col-sm-9 col-xs-8">
+                    <div class="input-group">
+                      <input type="text" class="form-control form_date " placeholder="请选择时间" data-date="" data-date-format="yyyy-mm-dd" />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-3 col-xs-4 text-right">选择时间点</div>
+                  <div class="col-sm-9 col-xs-8">
+                    <div class="input-group">
+                      <input type="text" class="form-control form_time" placeholder="请选择时间点" data-date="" data-date-format="hh" />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-3 col-xs-4 text-right">&nbsp;</div>
+                  <div class="col-sm-9 col-xs-8">
+                    <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>
+                      检查
+                    </button>
+                  </div>
                 </div>
               </div>
+              <h2 class=" text-danger">
+                <i class="fa fa-bullhorn"></i>
+                检查结果
+              </h2>
+              <div class="bsbg">
+                <p class="bg-danger text-danger">
+                  <i class="fa fa-exclamation-circle"></i> <strong>警告：</strong>
+                  不能超过当前日期
+                </p>
+                <p class="bg-success text-success">
+                  <i class="fa fa-check"></i> <strong>成功：</strong>
+                  全区2016-08-31数据存在，无需修复
+                </p>
+              </div>
             </div>
-            <div class="form-group">
-              <div class="col-sm-3 col-xs-4 text-right">选择时间点</div>
-              <div class="col-sm-9 col-xs-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="请选择时间点"  />
+            <!--/tab1-->
+            <div class="tab-pane fade" id="tab1">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-sm-3 col-xs-4 text-right">选择时间</div>
+                  <div class="col-sm-9 col-xs-8">
+                    <div class="input-group">
+                      <input type="text" class="form-control form_date" placeholder="请选择时间" />
+                      <p class="text-danger">请输入1-24数值范围内的值</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-3 col-xs-4 text-right">&nbsp;</div>
+                  <div class="col-sm-9 col-xs-8">
+                    <button type="submit" class="btn btn-success">
+                      <i class="fa fa-check"></i>
+                      检查区服
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-3 col-xs-4 text-right">&nbsp;</div>
-              <div class="col-sm-9 col-xs-8">
-                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>
-                  确定
-
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/tab1-->
-        <div class="tab-pane fade" id="tab1">
-          <div class="form-horizontal">
-            <div class="form-group">
-              <div class="col-sm-3 col-xs-4 text-right">选择时间</div>
-              <div class="col-sm-9 col-xs-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="请选择时间"  />
-                  <p class="text-danger">请输入1-24数值范围内的值</p>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-3 col-xs-4 text-right">&nbsp;</div>
-              <div class="col-sm-9 col-xs-8">
-                <button type="submit" class="btn btn-success">
-                  <i class="fa fa-check"></i>
-                  检查区服
-                </button>
-              </div>
+              <h2 class=" text-danger">
+                <i class="fa fa-bullhorn"></i>
+                检查结果
+              </h2>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!--/第一个--> </div>
   </div>
-  <!--/第一个-->
-</div>
-</div>
-<!--导航条-->
-<nav class="navBar">
-<ul class="navbarNav">
-  <li class="navli">
-    <a href="func.html" title="">
-      <span class="navIcon">
-        <i class="fa fa fa-certificate"></i>
-      </span>
-      <span class="navText">功能</span>
-    </a>
-  </li>
-  <li class="navli">
-    <a href="data.html" >
-      <span class="navIcon">
-        <i class="fa fa-database"></i>
-      </span>
-      <span class="navText">数据</span>
-    </a>
-  </li>
-  <li class="navli">
-    <a href="javascript:void(0);">
-      <span class="navIcon">
-        <i class="fa fa fa-location-arrow"></i>
-      </span>
-      <span class="navText">游戏</span>
-    </a>
-    <div class="barLlist">
-      <a href="赛尔号">赛尔号</a>
-      <a href="皮卡丘">皮卡丘</a>
-      <a href="三国1">三国1</a>
-      <a href="赵云战纪">赵云战纪</a>
-      <a href="武林外传">武林外传</a>
-      <a href="夏日甜心">夏日甜心</a>
-    </div>
-  </li>
-  <li class="navli">
-    <a href="javascript:void(0);">
-      <span class="navIcon">
-        <i class="fa fa-gear"></i>
-      </span>
-      <span class="navText">设置</span>
-    </a>
-    <div class="barLlist">
-      <a href="reset.html">密码重置</a>
-      <a href="login.html">退出</a>
-    </div>
-  </li>
-</ul>
-</nav>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/js/index.js"></script>
+  <!--导航条-->
+  <nav class="navBar">
+    <ul class="navbarNav">
+      <li class="navli">
+        <a href="func.html" title="">
+          <span class="navIcon">
+            <i class="fa fa fa-certificate"></i>
+          </span>
+          <span class="navText">功能</span>
+        </a>
+      </li>
+      <li class="navli">
+        <a href="data.html">
+          <span class="navIcon">
+            <i class="fa fa-database"></i>
+          </span>
+          <span class="navText">数据</span>
+        </a>
+      </li>
+      <li class="navli">
+        <a href="javascript:void(0);">
+          <span class="navIcon">
+            <i class="fa fa fa-location-arrow"></i>
+          </span>
+          <span class="navText">游戏</span>
+        </a>
+        <div class="barLlist">
+          <a href="赛尔号">赛尔号</a>
+          <a href="皮卡丘">皮卡丘</a>
+          <a href="三国1">三国1</a>
+          <a href="赵云战纪">赵云战纪</a>
+          <a href="武林外传">武林外传</a>
+          <a href="夏日甜心">夏日甜心</a>
+        </div>
+      </li>
+      <li class="navli">
+        <a href="javascript:void(0);">
+          <span class="navIcon">
+            <i class="fa fa-gear"></i>
+          </span>
+          <span class="navText">设置</span>
+        </a>
+        <div class="barLlist">
+          <a href="reset.html">密码重置</a>
+          <a href="login.html">退出</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/js/index.js"></script>
+  <script src='../js/bootstrap-datetimepicker.min.js'></script>
+  <script>
+        $('.form_date').datetimepicker({//日期
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayBtn: true,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+          $('.form_time').datetimepicker({ //时间
+                weekStart: 1,
+                todayBtn:  1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 1,
+                minView: 0,
+                minView: 2,
+                forceParse: 0
+            });
+        </script>
 </body>
 </html>

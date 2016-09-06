@@ -9,6 +9,31 @@ a {
   color: #555;
 }
 
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 .abCenter {
   display: -ms-flexbox;
   display: flex;
@@ -302,4 +327,17 @@ button, input:not([type=radio]):not([type=checkbox]), select {
 .flex-pack-justify {
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.bsbg .bg-primary,
+.bsbg .bg-info,
+.bsbg .bg-success,
+.bsbg .bg-warning,
+.bsbg .bg-danger {
+  margin: 10px 0;
+  padding: 15px;
+}
+
+.bsbg .bg-primary {
+  color: #fff;
 }

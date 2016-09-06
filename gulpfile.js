@@ -10,14 +10,14 @@
 // Load plugins
 //css
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
+    sass = require('gulp-ruby-sass'), //sass
+    autoprefixer = require('gulp-autoprefixer'), //各大浏览器前缀
+    minifycss = require('gulp-minify-css'), //压缩css
     // jshint = require('gulp-jshint'),
     //img
-    imagemin = require('gulp-imagemin'),
+    imagemin = require('gulp-imagemin'), //压缩img
     pngquant = require('imagemin-pngquant'),
-    rename = require('gulp-rename'),
+    rename = require('gulp-rename'),//中命名
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
@@ -29,7 +29,7 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     del = require('del'),
     utf8Convert = require('gulp-utf8-convert');
-   var browserSync = require('browser-sync').create();
+   var browserSync = require('browser-sync').create(); //浏览器刷新必备
 // fileinclude = require('gulp-file-include'),// include 文件用
 //  template = require('gulp-template'),//替换变量以及动态html用
 // css

@@ -7,6 +7,15 @@ a {
     color: #555
 }
 
+$heading:(h1:2rem,h2:1.5rem,h3:1.2rem,h4:1rem,h5:0.8rem);
+@each $header, $size in $heading{
+    #{$header}{
+        font-size:$size;
+        font-weight:bold;
+    }
+}
+
+
 .abCenter {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -392,4 +401,16 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+.bsbg .bg-primary,
+.bsbg .bg-info,
+.bsbg .bg-success,
+.bsbg .bg-warning,
+.bsbg .bg-danger{
+    margin:10px 0;
+    padding:15px;
+
+}
+.bsbg .bg-primary{
+    color:#fff;
 }
