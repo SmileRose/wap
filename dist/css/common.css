@@ -382,3 +382,8 @@ i.fa {
 .pill-content > .active {
   height: auto;
 }
+
+.tables {
+  width: 100%;
+  overflow-x: scroll;
+}
