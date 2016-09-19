@@ -168,6 +168,51 @@ button, input:not([type=radio]):not([type=checkbox]), select {
   font-size: 12px;
 }
 
+.gamesList {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.78);
+}
+.gamesList .gamesMenu {
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  width: 100%;
+  display: flex-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+.gamesList .gamesMenu > a {
+  display: -ms-flexbox;
+  display: flex;
+  color: rebeccapurple;
+  -ms-flex-pack: center;
+      justify-content: center;
+  width: 30%;
+  margin: 10px 0.5%;
+}
+.gamesList .gamesMenu > a > span {
+  background: #fff;
+  display: block;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 100%;
+  text-align: center;
+}
+
 .header {
   position: fixed;
   left: 0;

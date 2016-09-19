@@ -39,16 +39,16 @@
 <div class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>
+            </button> -->
             <a class="navbar-brand"  href="javascript:history.go(-1);"> <i class="fa fa-chevron-left"></i>
             </a>
             <a class="navbar-brand" href="index.html">后台数据管理系</a>
         </div>
-        <div class="navbar-collapse collapse ">
+        <!-- <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="func_section.html">栏目管理</a>
@@ -60,21 +60,20 @@
                     <a href="func_role.html">角色列表</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- /header -->
 <div class="wrapper">
     <div class="container">
         <!--第一个-->
-        <div class="panel panel-danger panleMargin wow bounceInLeft" data-wow-delay="0.2s">
+        <!-- <div class="panel panel-danger panleMargin wow bounceInLeft" data-wow-delay="0.2s">
             <div class="panel-heading bold">栏目管理</div>
             <div class="panel-body">
-                <!--弹出层实例-->
                 <a class="btn btn-success"  href="func_section.html">查看栏目</a>
                 <a class="btn btn-warning"  href="func_section.html">编辑栏目</a>
             </div>
-        </div>
+        </div> -->
         <!--/第一个-->
         <div class="panel panel-info panleMargin wow bounceInRight" data-wow-delay="0.4s">
             <div class="panel-heading bold">任务管理</div>
@@ -93,33 +92,28 @@
             </div>
         </div>
         <div class="panel panel-warning panleMargin wow bounceInRight" data-wow-delay="2s">
-            <div class="panel-heading bold">武林外传</div>
-            <div class="panel-body"></div>
+            <div class="panel-heading bold">公告审核</div>
+            <div class="panel-body">
+            <a class="btn btn-success"  href="reset.html">公告审核列表</a>
+
+            </div>
+        </div>
+
+        <div class="panel panel-success panleMargin wow bounceInLeft" data-wow-delay="1s">
+            <div class="panel-heading bold">密码管理</div>
+            <div class="panel-body">
+                <a class="btn btn-success"  href="reset.html">密码重置</a>
+                <a class="btn btn-warning"  href="login.html">退出</a>
+            </div>
         </div>
     </div>
+
 </div>
 <!--导航条-->
 @@include('./footer.html')
 <!-- 弹出层 Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /弹出层 Modal -->
-<script src="../js/jquery.min.js"></script>
+
+
 <!--公共js-->
 @@include('./js.html')
 <!--/公共js-->
