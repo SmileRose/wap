@@ -5,7 +5,7 @@
     @@include('./head_min.html')
 <body>
     <!--header-->
-    <div class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
+    <header class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,7 +40,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </header>
     <!-- /header -->
     <div class="wrapper">
         <div class="container">
@@ -355,9 +355,10 @@
     </div>
     <!--导航条-->
     @@include('./footer.html')
-    <script src="../js/echarts.min.js"></script>
     <!--公共js-->
     @@include('./js.html')
+    <script src="../js/echarts.min.js"></script>
+
     <!--/公共js-->
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例

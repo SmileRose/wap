@@ -77,25 +77,6 @@ $heading:(h1:2rem,h2:1.5rem,h3:1.2rem,h4:1rem,h5:0.8rem);
     -ms-flex-pack: justify;
     justify-content: space-between
 }
-//::-webkit-scrollbar {
-    //     width: 12px
-    //
-//}
-//::-webkit-scrollbar-track {
-    //     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    //     border-radius: 10px
-    //
-//}
-//::-webkit-scrollbar-thumb {
-    //     border-radius: 10px;
-    //     background: rgba(255, 0, 0, 0.8);
-    //     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
-    //
-//}
-//::-webkit-scrollbar-thumb:window-inactive {
-    //     background: rgba(255, 0, 0, 0.4)
-    //
-//}
 body {
     width: 100%
 }
@@ -172,33 +153,50 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     z-index: 99999;
     left: 0;
     top: 0;
-    background: rgba(0,0,0,0.78);
+    background: rgba(0,0,0,0.7);
+
     .gamesMenu{
         position: absolute;
-        left: 0;
-        bottom: 50px;
-        width: 100%;
-        display:flex-box;
-        display:flex;
-        flex-wrap: wrap; //huanhang
-      flex-direction: row; //flex水平排列
-     justify-content: space-between;//主轴对齐方式
-     flex-flow: row wrap;
+            left: 0;
+            bottom: 300px;
+            width: 100%;
+            display: flex-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-direction: row;
+            flex-direction: column;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            align-items: center;
+            -ms-flex-flow: row wrap;
+
+            transition: all 0.5s ease-in;
+            &.active{
+             flex-flow: row wrap;
+            }
+
+
+
         >a{
            display: -ms-flexbox;
            display: flex;
-           color: rebeccapurple;
            justify-content: center;
            width: 30%;
            margin: 10px 0.5%;
             >span{
-            background: #fff;
+color:#333;
             display: block;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
             border-radius: 100%;
             text-align: center;
+            font-size: 1.2rem;
+            &.bg-primary{
+                color:#fff;
+            }
             }
         }
     }
@@ -212,6 +210,7 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     padding: 0 10px;
     z-index: 999;
     background-color: #0e90d2;
+
     .headerTitle {
         margin: 0 20%;
         font-weight: 400;
@@ -224,6 +223,7 @@ button, input:not([type=radio]):not([type=checkbox]), select {
         font-size: 2rem;
         color: #fff;
         line-height: 50px;
+
         a {
             color: #fff;
             font-size: 2rem;
@@ -263,6 +263,7 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     -webkit-animation: bounceInUp .5s ease;
     animation: bounceInUp .5s ease;
 }
+
 /*foot动画*/
 @-webkit-keyframes bounceInUp {
     0%, 60%, 75%, 90%, 100% {
@@ -391,6 +392,7 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     position: absolute;
     right: 10px;
     top: 0;
+
     a {
         color: #fff;
         display: block;
@@ -410,6 +412,7 @@ button, input:not([type=radio]):not([type=checkbox]), select {
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
     background-color: transparent;
 }
+
 /*flex*/
 .flex {
     display: -webkit-box;
@@ -447,36 +450,30 @@ button, input:not([type=radio]):not([type=checkbox]), select {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
-.bsbg .bg-primary,
-.bsbg .bg-info,
-.bsbg .bg-success,
-.bsbg .bg-warning,
-.bsbg .bg-danger{
-    margin:10px 0;
-    padding:15px;
+.bsbg .bg-primary, .bsbg .bg-info, .bsbg .bg-success, .bsbg .bg-warning, .bsbg .bg-danger {
+    margin: 10px 0;
+    padding: 15px;
 }
-.bsbg .bg-primary{
-    color:#fff;
+.bsbg .bg-primary {
+    color: #fff;
 }
-i.fa{
+i.fa {
     padding: 0 5px;
 }
-.panel-title>a{
-    width:100%;
-    display:block;
-    height:100%
+.panel-title>a {
+    width: 100%;
+    display: block;
+    height: 100%
 }
-.tab-content > .tab-pane,
-.pill-content > .pill-pane {
- display: block;
- height: 0;
- overflow-y: hidden;
+.tab-content > .tab-pane, .pill-content > .pill-pane {
+    display: block;
+    height: 0;
+    overflow-y: hidden;
 }
-.tab-content > .active,
-.pill-content > .active {
- height: auto;
+.tab-content > .active, .pill-content > .active {
+    height: auto;
 }
-.tables{
-    width:100%;
-    overflow-x:scroll;
+.tables {
+    width: 100%;
+    overflow-x: scroll;
 }

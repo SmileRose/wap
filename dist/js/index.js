@@ -2,7 +2,7 @@
  * @Author: zhaohongmei
  * @Date:   2016-08-03 15:22:08
  * @Last Modified by:   zhaohongmei
- * @Last Modified time: 2016-08-05 14:34:53
+ * @Last Modified time: 2016-09-21 15:40:27
  */
 ;(function($, window, document, undefined) {
     var methods = {
@@ -53,6 +53,12 @@
     };
 })(jQuery);
 $(function() {
+    //动画
+    window.onload = function(){
+    }
+        if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
+            new WOW().init();
+        };
     $('.navli').click(function() {
         var self = $(this);
         var navchild = self.find('.barLlist')
@@ -61,6 +67,16 @@ $(function() {
         } else {
             self.find('.barLlist').toggle();
             $(this).siblings().find('.barLlist').hide();
+        }
+    });
+    $('.gamesItem').bind('click' ,function(){
+        $('#navGame').toggleClass('hide').toggleClass('gamesList');
+        $(".gamesMenu").addClass('active');
+        });
+
+    $("#navGame").click(function(e){
+        if(e.target==this){
+            $(this).hide();
         }
     })
 })

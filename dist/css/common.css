@@ -175,42 +175,51 @@ button, input:not([type=radio]):not([type=checkbox]), select {
   z-index: 99999;
   left: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(0, 0, 0, 0.7);
 }
 .gamesList .gamesMenu {
   position: absolute;
   left: 0;
-  bottom: 50px;
+  bottom: 300px;
   width: 100%;
   display: flex-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -ms-flex-direction: row;
-      flex-direction: row;
+  flex-direction: column;
   -ms-flex-pack: justify;
-      justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-flow: row wrap;
+  transition: all 0.5s ease-in;
+}
+.gamesList .gamesMenu.active {
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
 }
 .gamesList .gamesMenu > a {
   display: -ms-flexbox;
   display: flex;
-  color: rebeccapurple;
   -ms-flex-pack: center;
       justify-content: center;
   width: 30%;
   margin: 10px 0.5%;
 }
 .gamesList .gamesMenu > a > span {
-  background: #fff;
+  color: #333;
   display: block;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
   border-radius: 100%;
   text-align: center;
+  font-size: 1.2rem;
+}
+.gamesList .gamesMenu > a > span.bg-primary {
+  color: #fff;
 }
 
 .header {
@@ -393,11 +402,7 @@ button, input:not([type=radio]):not([type=checkbox]), select {
   justify-content: space-between;
 }
 
-.bsbg .bg-primary,
-.bsbg .bg-info,
-.bsbg .bg-success,
-.bsbg .bg-warning,
-.bsbg .bg-danger {
+.bsbg .bg-primary, .bsbg .bg-info, .bsbg .bg-success, .bsbg .bg-warning, .bsbg .bg-danger {
   margin: 10px 0;
   padding: 15px;
 }
@@ -416,15 +421,13 @@ i.fa {
   height: 100%;
 }
 
-.tab-content > .tab-pane,
-.pill-content > .pill-pane {
+.tab-content > .tab-pane, .pill-content > .pill-pane {
   display: block;
   height: 0;
   overflow-y: hidden;
 }
 
-.tab-content > .active,
-.pill-content > .active {
+.tab-content > .active, .pill-content > .active {
   height: auto;
 }
 
