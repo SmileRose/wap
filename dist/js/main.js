@@ -1916,7 +1916,7 @@ function e(t){var e={},i=[],n=[];return t.eachRawSeries(function(t){var r=t[nn];
  * @Author: zhaohongmei
  * @Date:   2016-08-03 15:22:08
  * @Last Modified by:   zhaohongmei
- * @Last Modified time: 2016-09-21 15:40:27
+ * @Last Modified time: 2016-09-21 18:32:53
  */
 ;(function($, window, document, undefined) {
     var methods = {
@@ -1984,7 +1984,7 @@ $(function() {
         }
     });
     $('.gamesItem').bind('click' ,function(){
-        $('#navGame').toggleClass('hide').toggleClass('gamesList');
+        $('#navGame').toggleClass('gamesList');
         $(".gamesMenu").addClass('active');
         });
 

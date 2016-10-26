@@ -5,7 +5,7 @@
  * step4: npm install gulp --save-dev  本地安装（生成node_modules文件夹）
  * step5 gulp -v 检测安装情况 （正常情况应该包含本地和全局两个信息）
  * *
- * $ npm install gulp-ruby-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-imagemin imagemin-pngquant gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-rev-append gulp-utf8-convert gulp-cache del  gulp-htmlmin  browser-sync gulp-file-include --save-dev
+ * $ npm install gulp-ruby-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-imagemin imagemin-pngquant gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-rev-append gulp-utf8-convert gulp-cache del  gulp-htmlmin  browser-sync gulp-file-include jshint gulp-jshint --save-dev
  使用npm install --save-dev jshint gulp-jshint
  */
 // Load plugins
@@ -28,7 +28,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     notify = require('gulp-notify'),
     rev = require('gulp-rev-append'), //页面的引用添加版本号，清除页面引用缓存
-    // livereload = require('gulp-livereload'),
+    livereload = require('gulp-livereload'),
     htmlmin = require('gulp-htmlmin'),
     del = require('del'),
     fileinclude = require('gulp-file-include'), // include 文件用
