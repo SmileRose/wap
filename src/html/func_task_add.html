@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="taskAdd">
 <head>
         <title>任务列表</title>
         @@include('./head_min.html')
+
         <link rel="stylesheet" type="text/css" href="../css/checkbox.css">
-<body>
+<body ng-controller="taskCtrl">
         <!--head-->
         <header class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
                 <div class="container">
@@ -34,21 +35,31 @@
                 </div>
         </header>
         <!-- /header -->
-        <div class="wrapper">
+        <div class="wrapper" >
                 <div class="layout">
                         <div class="container">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" name="taskForm">
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">任务标题</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <input type="text" class="form-control"  />
+                                                        <input type="text" name="taskTitle" class="form-control" ng-model="taskTitle" ng-change="taskChange()" ng-minlength="2" required />
+                                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                                              ng-show="taskForm.taskTitle.$dirty && taskForm.taskTitle.$valid"></span>
                                                 </div>
+
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">任务内容</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <textarea class="form-control col-sm-10" rows="3"></textarea>
+                                                        <textarea class="form-control col-sm-10" name="taskContent" rows="3" ng-model="taskContent" required></textarea>
                                                 </div>
+
+                                                <!--验证提示消息-->
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <p ng-show="taskForm.taskTitle.dirty && taskForm.taskTitle.$error.required">标题不能为空</p>
+                                                    <p ng-show= 'taskForm.taskTitle.$error.minlength'>标题不能少于两个字符</p>
+                                                </div>
+
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">抄送人</label>
@@ -59,51 +70,30 @@
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">优先级</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <select name="" class="form-control">
-                                                                <option value="">高</option>
-                                                                <option value="">中</option>
-                                                                <option value="">低</option>
+                                                        <select name="" class="form-control" ng-model="orderd" ng-options='option.name as option.name for option in orders'>
                                                         </select>
                                                 </div>
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">需求时间</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <input type="date" class="form-control" id="datatime" />
+                                                        <input type="date" class="form-control" id="datatime" readonly />
                                                 </div>
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">数据类型</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <select name="" class="form-control">
-                                                                <option value="">添加数据</option>
-                                                                <option value="">功能优化</option>
-                                                                <option value="">低</option>
-                                                        </select>
+                                                        <select class="form-control" ng-model="funcSelected" ng-options="o for o in leixins"></select>
                                                 </div>
+                                   <!--            下面注释是为了看 选种的是哪一个 -->
+                                               <!--  <p>{{ funcSelected }}</p> -->
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">所属游戏</label>
                                                 <div class="checkbox col-sm-9 col-xs-9">
                                                         <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
+                                                                <input class="styled" type="checkbox"  name="checkName" ng-model="checkedName" />
                                                                 <label>三国威力加强版</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>武林外传</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>赵云战纪</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>皮卡丘</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>三国一</label>
                                                         </div>
                                                 </div>
                                         </div>
@@ -111,27 +101,24 @@
                                 <div class="form-group">
                                         <label class="col-sm-3 col-xs-3 control-label">&nbsp;</label>
                                         <div class="checkbox col-sm-9 col-xs-9">
-                                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>
-                                                        确定
+                                                <button type="submit" class="btn btn-success" ng-disabled="taskForm.taskTitle.invalid ||  taskForm.taskContent.$invalid">
+                                                    <i class="fa fa-check"></i>确定
                                                 </button>
                                         </div>
                                 </div>
                         </form>
                 </div>
         </div>
-
 <!--导航条-->
-@@include('./footer.html')
+
 <!--公共js-->
 @@include('./js.html')
 <!--/公共js-->
-        <script src='../js/bootstrap-datetimepicker.min.js'></script>
+<script src='../js/bootstrap-datetimepicker.js'></script>
 <script>
 if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
         new WOW().init();
 };
-
-
 $('#datatime').datetimepicker({//日期
     format: "yyyy-mm-dd",
     autoclose: true,
@@ -141,6 +128,24 @@ $('#datatime').datetimepicker({//日期
     minView: 2,
     forceParse: 0
 });
+//angularjs begin
+var app = angular.module('taskAdd', []);
+app.controller('taskCtrl', function($scope){
+//数据优先级
+$scope.orderd = '高'
+$scope.orders = [{ id: 1, name: '高' }, { id: 2, name: '中' }, { id: 3, name: '低' }];
+//数据类型
+$scope.leixins = ["添加数据", "前端优化", "功能增加"];
+//checkbox
+});
+
+
+//验证是否合理
+// $scope.taskOk = function(){
+
+// }
+
+
 </script>
 </body>
 </html>

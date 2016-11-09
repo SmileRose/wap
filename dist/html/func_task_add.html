@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="taskAdd">
 <head>
         <title>任务列表</title>
         <!--公共头部-->
@@ -18,16 +18,20 @@
 <link rel="stylesheet" type="text/css" href="../css/common.css" />
 <link rel="stylesheet" type="text/css" href="../css/index.css" />
 <link rel="stylesheet" type="text/css" href="../css/animate.css" />
+
 <!--[if lte IE 9]>
 <script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
+<script src="../js/modernizr.js"></script>
 <![endif]-->
 <!--[if lt IE 8]>
 <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
 <![endif]-->
+<script src="../js/modernizr.js"></script>
 <!--/公共头部-->
 
+
         <link rel="stylesheet" type="text/css" href="../css/checkbox.css">
-<body>
+<body ng-controller="taskCtrl">
         <!--head-->
         <header class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
                 <div class="container">
@@ -57,21 +61,31 @@
                 </div>
         </header>
         <!-- /header -->
-        <div class="wrapper">
+        <div class="wrapper" >
                 <div class="layout">
                         <div class="container">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" name="taskForm">
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">任务标题</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <input type="text" class="form-control"  />
+                                                        <input type="text" name="taskTitle" class="form-control" ng-model="taskTitle" ng-change="taskChange()" ng-minlength="2" required />
+                                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                                              ng-show="taskForm.taskTitle.$dirty && taskForm.taskTitle.$valid"></span>
                                                 </div>
+
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">任务内容</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <textarea class="form-control col-sm-10" rows="3"></textarea>
+                                                        <textarea class="form-control col-sm-10" name="taskContent" rows="3" ng-model="taskContent" required></textarea>
                                                 </div>
+
+                                                <!--验证提示消息-->
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <p ng-show="taskForm.taskTitle.dirty && taskForm.taskTitle.$error.required">标题不能为空</p>
+                                                    <p ng-show= 'taskForm.taskTitle.$error.minlength'>标题不能少于两个字符</p>
+                                                </div>
+
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">抄送人</label>
@@ -82,51 +96,30 @@
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">优先级</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <select name="" class="form-control">
-                                                                <option value="">高</option>
-                                                                <option value="">中</option>
-                                                                <option value="">低</option>
+                                                        <select name="" class="form-control" ng-model="orderd" ng-options='option.name as option.name for option in orders'>
                                                         </select>
                                                 </div>
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">需求时间</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <input type="date" class="form-control" id="datatime" />
+                                                        <input type="date" class="form-control" id="datatime" readonly />
                                                 </div>
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">数据类型</label>
                                                 <div class="col-sm-9 col-xs-9">
-                                                        <select name="" class="form-control">
-                                                                <option value="">添加数据</option>
-                                                                <option value="">功能优化</option>
-                                                                <option value="">低</option>
-                                                        </select>
+                                                        <select class="form-control" ng-model="funcSelected" ng-options="o for o in leixins"></select>
                                                 </div>
+                                   <!--            下面注释是为了看 选种的是哪一个 -->
+                                               <!--  <p>{{ funcSelected }}</p> -->
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">所属游戏</label>
                                                 <div class="checkbox col-sm-9 col-xs-9">
                                                         <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
+                                                                <input class="styled" type="checkbox"  name="checkName" ng-model="checkedName" />
                                                                 <label>三国威力加强版</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>武林外传</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>赵云战纪</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>皮卡丘</label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox" />
-                                                                <label>三国一</label>
                                                         </div>
                                                 </div>
                                         </div>
@@ -134,71 +127,15 @@
                                 <div class="form-group">
                                         <label class="col-sm-3 col-xs-3 control-label">&nbsp;</label>
                                         <div class="checkbox col-sm-9 col-xs-9">
-                                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>
-                                                        确定
+                                                <button type="submit" class="btn btn-success" ng-disabled="taskForm.taskTitle.invalid ||  taskForm.taskContent.$invalid">
+                                                    <i class="fa fa-check"></i>确定
                                                 </button>
                                         </div>
                                 </div>
                         </form>
                 </div>
         </div>
-
 <!--导航条-->
-<nav class="navBar">
-        <ul class="navbarNav">
-                <li class="navli">
-                       <a href="javascript:void(0);">
-                                <span class="navIcon"> <i class="fa fa fa-certificate"></i>
-                                </span>
-                                <span class="navText">工具</span>
-                        </a>
-                        <div class="barLlist">
-                                <a href="func_task.html">任务管理</a>
-                                <a href="func_role.html">角色管理</a>
-                                <a href="notice_attention.html">公告审核</a>
-                                <a href="reset.html">密码重置</a>
-                        </div>
-                </li>
-                <li class="navli">
-                        <a href="javascript:void(0);" class="gamesItem">
-                                <span class="navIcon">
-                                        <i class="fa fa fa-location-arrow"></i>
-                                </span>
-                                <span class="navText">游戏</span>
-                        </a>
-                        <div class="gamesList hide" id='navGame'>
-                                <div class="gamesMenu" >
-                                        <a class="wow fadeInUpBig" data-wow-delay="0.1s" href="game_data.html"><span class="bg-info">赛尔号</span></a>
-                                        <a class="wow fadeInUpBig" data-wow-delay="0.2s" href="game_data.html"><span class="bg-success">皮卡丘</span></a>
-                                        <a class="wow fadeInUpBig" data-wow-delay="0.4s" href="game_data.html"><span class="bg-primary">三国1</span></a>
-                                        <a class="wow fadeInUpBig" data-wow-delay="0.5s" href="game_data.html"><span class="bg-warning">赵云战纪</span></a>
-                                        <a class="wow fadeInUpBig" data-wow-delay="0.6s" href="game_data.html"><span class="bg-danger">武林外传</span></a>
-                                        <a class="wow fadeInUpBig" data-wow-delay="0.7s" href="game_data.html"><span class="bg-info">夏日甜心</span></a>
-                                </div>
-                        </div>
-                </li>
-                <li class="navli">
-                        <a href="data.html" >
-                                <span class="navIcon"> <i class="fa fa-database"></i>
-                                </span>
-                                <span class="navText">数据</span>
-                        </a>
-                </li>
-                <!-- <li class="navli">
-                        <a href="javascript:void(0);">
-                                <span class="navIcon">
-                                        <i class="fa fa-gear"></i>
-                                </span>
-                                <span class="navText">设置</span>
-                        </a>
-                        <div class="barLlist">
-                                <a href="reset.html">密码重置</a>
-                                <a href="login.html">退出</a>
-                        </div>
-                </li> -->
-        </ul>
-</nav>
-<!--/导航条-->
 
 <!--公共js-->
 <!-- js引入 -->
@@ -206,16 +143,16 @@
 <script src="../js/index.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/wow.min.js"></script>
+<script src="../js/angular.min.js"></script>
+
 <!-- /js引入 -->
 
 <!--/公共js-->
-        <script src='../js/bootstrap-datetimepicker.min.js'></script>
+<script src='../js/bootstrap-datetimepicker.js'></script>
 <script>
 if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
         new WOW().init();
 };
-
-
 $('#datatime').datetimepicker({//日期
     format: "yyyy-mm-dd",
     autoclose: true,
@@ -225,6 +162,24 @@ $('#datatime').datetimepicker({//日期
     minView: 2,
     forceParse: 0
 });
+//angularjs begin
+var app = angular.module('taskAdd', []);
+app.controller('taskCtrl', function($scope){
+//数据优先级
+$scope.orderd = '高'
+$scope.orders = [{ id: 1, name: '高' }, { id: 2, name: '中' }, { id: 3, name: '低' }];
+//数据类型
+$scope.leixins = ["添加数据", "前端优化", "功能增加"];
+//checkbox
+});
+
+
+//验证是否合理
+// $scope.taskOk = function(){
+
+// }
+
+
 </script>
 </body>
 </html>

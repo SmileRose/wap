@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
     <title>实时数据</title>
     <!--公共头部-->
@@ -18,17 +18,20 @@
 <link rel="stylesheet" type="text/css" href="../css/common.css" />
 <link rel="stylesheet" type="text/css" href="../css/index.css" />
 <link rel="stylesheet" type="text/css" href="../css/animate.css" />
+
 <!--[if lte IE 9]>
 <script src="http://res.nie.netease.com/comm/html5/html5shiv.js"></script>
+<script src="../js/modernizr.js"></script>
 <![endif]-->
 <!--[if lt IE 8]>
 <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
 <![endif]-->
+<script src="../js/modernizr.js"></script>
 <!--/公共头部-->
 
-<body>
+<body ng-controller="dataCrl" ng-cloak>
     <!--header-->
-    <header class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
+    <div class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,14 +66,14 @@
                 </ul>
             </div>
         </div>
-    </header>
+    </div>
     <!-- /header -->
     <div class="wrapper">
         <div class="container">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <!--第一个-->
                 <div class="panel panel-danger">
-                    <div class="panel-heading " role="tab" id="headingOne">
+                    <div class="panel-heading " role="tab" v-for="n in 4" id='heading-{n}'>
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> <i class="fa fa-paper-plane-o"></i>
                                 三国威力加强版
@@ -79,76 +82,45 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
+                            <!--图表-->
                             <div id="main" style="width:300px;height:300px;"></div>
-                            <div class="tables">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <i class="fa fa-clock-o text-danger"></i>
-                                                时间点
-                                            </th>
-                                            <th>星期</th>
-                                            <th>充值金额</th>
-                                            <th>注册账号</th>
-                                            <th>登陆账号</th>
-                                            <th>付费账号</th>
-                                            <th>付费ARPU</th>
-                                            <th>登陆付费率</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="danger">
-                                            <td>今日16:00</td>
-                                            <td>六</td>
-                                            <td>￥55555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="">
-                                            <td>昨日16:00</td>
-                                            <td>五</td>
-                                            <td>￥55555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="success">
-                                            <td>一周同比</td>
-                                            <td>上周六</td>
-                                            <td>￥55555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="">
-                                            <td>一日同比</td>
-                                            <td></td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="warning">
-                                            <td>同比</td>
-                                            <td></td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <!--/图表-->
+                            <table class="table table-bordered" id="data">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>
+                                            <i class="fa fa-clock-o text-danger"></i>
+                                            日期
+                                        </th>
+                                        <th>充值金额</th>
+                                        <th>注册设备</th>
+                                        <th>注册账号</th>
+                                        <th>登陆账号</th>
+                                        <th>登陆付费率</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="todo in todos" ng-if="$odd" class="danger">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{todo.date}}</td>
+                                        <td>{{todo.money}}</td>
+                                        <td>{{todo.dele}}</td>
+                                        <td>{{todo.reg}}</td>
+                                        <td>{{todo.log}}</td>
+                                        <td>{{todo.payrate}}</td>
+                                    </tr>
+                                    <tr ng-repeat="todo in todos" ng-if="$even">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{todo.date}}</td>
+                                        <td>{{todo.money}}</td>
+                                        <td>{{todo.dele}}</td>
+                                        <td>{{todo.reg}}</td>
+                                        <td>{{todo.log}}</td>
+                                        <td>{{todo.payrate}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -165,9 +137,10 @@
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body">
                             <div id="hehehe" style="width:300px;height:300px;"></div>
-                            <table class="table table-bordered">
+                            <table class="table" id="data">
                                 <thead>
                                     <tr>
+                                        <th>序号</th>
                                         <th>
                                             <i class="fa fa-clock-o text-danger"></i>
                                             日期
@@ -180,45 +153,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="danger">
-                                        <td>今日</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>昨日</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="success">
-                                        <td>上周今日</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>环比</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="warning">
-                                        <td>同比</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
+                                    <tr ng-repeat="todo in todos">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{todo.date}}</td>
+                                        <td>{{todo.money}}</td>
+                                        <td>{{todo.dele}}</td>
+                                        <td>{{todo.reg}}</td>
+                                        <td>{{todo.log}}</td>
+                                        <td>{{todo.payrate}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -238,84 +180,10 @@
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                         <div class="panel-body">
                             <div id="hehe" style="width:300px;height:300px;"></div>
-                            <div class="tables">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <i class="fa fa-clock-o text-danger"></i>
-                                                日期
-                                            </th>
-                                            <th>充值金额</th>
-                                            <th>注册设备</th>
-                                            <th>注册账号</th>
-                                            <th>登陆账号</th>
-                                            <th>登陆付费率</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="danger">
-                                            <td>今日</td>
-                                            <td>585522</td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="">
-                                            <td>昨日</td>
-                                            <td>585522</td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="success">
-                                            <td>上周今日</td>
-                                            <td>585522</td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="">
-                                            <td>环比</td>
-                                            <td>585522</td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                        <tr class="warning">
-                                            <td>同比</td>
-                                            <td>585522</td>
-                                            <td>555</td>
-                                            <td>55554</td>
-                                            <td>565665</td>
-                                            <td>25969</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--第4个-->
-                <div class="panel panel-warning">
-                    <div class="panel-heading " role="tab" id="headingFour">
-                        <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <i class="fa fa-paper-plane-o"></i>
-                                花千骨
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                        <div class="panel-body">
-                            <div id="hehe" style="width:300px;height:300px;"></div>
-                            <table class="table table-bordered">
+                            <table class="table" id="data">
                                 <thead>
                                     <tr>
+                                        <th>序号</th>
                                         <th>
                                             <i class="fa fa-clock-o text-danger"></i>
                                             日期
@@ -328,56 +196,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="danger">
-                                        <td>今日</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>昨日</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="success">
-                                        <td>上周今日</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>环比</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
-                                    </tr>
-                                    <tr class="warning">
-                                        <td>同比</td>
-                                        <td>585522</td>
-                                        <td>555</td>
-                                        <td>55554</td>
-                                        <td>565665</td>
-                                        <td>25969</td>
+                                    <tr ng-repeat="todo in todos">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{todo.date}}</td>
+                                        <td>{{todo.money}}</td>
+                                        <td>{{todo.dele}}</td>
+                                        <td>{{todo.reg}}</td>
+                                        <td>{{todo.log}}</td>
+                                        <td>{{todo.payrate}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <!--   end --> </div>
-        </div>
+
+            <!--   end --> </div>
     </div>
-    <!--导航条-->
-    <nav class="navBar">
+</div>
+<!--导航条-->
+<nav class="navBar">
         <ul class="navbarNav">
                 <li class="navli">
                        <a href="javascript:void(0);">
@@ -433,18 +271,52 @@
 </nav>
 <!--/导航条-->
 
-    <!--公共js-->
-    <!-- js引入 -->
+<script src="../js/echarts.min.js"></script>
+<!--公共js-->
+<!-- js引入 -->
 <script src="../js/jquery.min.js"></script>
 <script src="../js/index.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/wow.min.js"></script>
+<script src="../js/angular.min.js"></script>
+
 <!-- /js引入 -->
 
-    <script src="../js/echarts.min.js"></script>
-
-    <!--/公共js-->
-    <script type="text/javascript">
+<!--/公共js-->
+<script type="text/javascript">
+        //angular
+        var app = angular.module('myApp', []);
+        app.controller('dataCrl', function($scope) {
+            $scope.todos = [{
+                date: '2016-07-19',
+                money: '125852',
+                dele: '1582',
+                reg: '52663',
+                log: '25552',
+                payrate: '14552'
+            }, {
+                date: '2016-07-20',
+                money: '125852',
+                dele: '1582',
+                reg: '52663',
+                log: '25552',
+                payrate: '14552'
+            }, {
+                date: '2016-07-21',
+                money: '125852',
+                dele: '1582',
+                reg: '52663',
+                log: '25552',
+                payrate: '14552'
+            }, {
+                date: '2016-07-22',
+                money: '125852',
+                dele: '1582',
+                reg: '52663',
+                log: '25552',
+                payrate: '14552'
+            }]
+        });
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
         var hehe = echarts.init(document.getElementById('hehe'));
