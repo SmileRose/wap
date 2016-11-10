@@ -1,142 +1,20 @@
-﻿{
-	"games": [
-		{
-			"皮卡丘",
-			"datas": [
-			{
-				"input": "595568",
-				"disktop": "5952854",
-				"resgiter": "55522",
-				"login": "45252",
-				"loginm":"4555223"
-			}, {
-				"input": "59557768",
-				"disktop": "52854",
-				"resgiter": "5522",
-				"login": "4252",
-				"loginm":"45223"
-			}
-		},
-		{
-			"花千骨",
-			"datas": [
-			{
-				"input": "595568",
-				"disktop": "5952854",
-				"resgiter": "55522",
-				"login": "45252",
-				"loginm":"4555223"
-			}, {
-				"input": "59557768",
-				"disktop": "52854",
-				"resgiter": "5522",
-				"login": "4252",
-				"loginm":"45223"
-			}
-		},
-	],
-	"haha": [
-	{
-		"input": "595568",
-		"disktop": "5952854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "59557768",
-		"disktop": "52854",
-		"resgiter": "5522",
-		"login": "4252",
-		"loginm":"45223"
-	}, {
-		"input": "59568",
-		"disktop": "59554",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"45523"
-	}, {
-		"input": "5968",
-		"disktop": "5952854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"45223"
-	}, {
-		"input": "568A.",
-		"disktop": "5952854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "555568",
-		"disktop": "52854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "54268",
-		"disktop": "5952854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "588955",
-		"disktop": "5952854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "5854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "52854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "59554",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "52854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "59554",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "59854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "54854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"4555223"
-	}, {
-		"input": "595568",
-		"disktop": "5952854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"45523"
-	}, {
-		"input": "595568",
-		"disktop": "512854",
-		"resgiter": "55522",
-		"login": "45252",
-		"loginm":"452113"
-	}]
-}
+﻿   {
+       "games": [
+           {
+               "Name": "花千骨",
+               "id" : 1
+           },
+           {
+               "Name": "皮卡丘",
+               "id" : 2
+           },
+           {
+               "Name": "武林外传",
+               "id" : 3
+           },
+           {
+               "Name": "三国1",
+               "id" : 4
+           }
+       ]
+   }

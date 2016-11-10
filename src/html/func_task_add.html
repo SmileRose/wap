@@ -3,7 +3,6 @@
 <head>
         <title>任务列表</title>
         @@include('./head_min.html')
-
         <link rel="stylesheet" type="text/css" href="../css/checkbox.css">
 <body ng-controller="taskCtrl">
         <!--head-->
@@ -46,20 +45,17 @@
                                                         <span class="glyphicon glyphicon-ok form-control-feedback"
                                                               ng-show="taskForm.taskTitle.$dirty && taskForm.taskTitle.$valid"></span>
                                                 </div>
-
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">任务内容</label>
                                                 <div class="col-sm-9 col-xs-9">
                                                         <textarea class="form-control col-sm-10" name="taskContent" rows="3" ng-model="taskContent" required></textarea>
                                                 </div>
-
                                                 <!--验证提示消息-->
                                                 <div class="col-sm-12 col-xs-12">
                                                     <p ng-show="taskForm.taskTitle.dirty && taskForm.taskTitle.$error.required">标题不能为空</p>
                                                     <p ng-show= 'taskForm.taskTitle.$error.minlength'>标题不能少于两个字符</p>
                                                 </div>
-
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">抄送人</label>
@@ -90,10 +86,10 @@
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-sm-3 col-xs-3 control-label">所属游戏</label>
-                                                <div class="checkbox col-sm-9 col-xs-9" ng-repeat="game in games">
-                                                        <div class="checkbox checkbox-primary pull-left">
-                                                                <input class="styled" type="checkbox"  name="checkName" ng-model="checkedName" />
-                                                                <label>三国威力加强版</label>
+                                                <div class="checkbox col-sm-9 col-xs-9">
+                                                        <div class="checkbox checkbox-primary pull-left"  ng-repeat="game in games">
+                                                                <input class="styled" type="checkbox" id="game{{game.id}}"  name="{{game.name}}" ng-checked="isSelected(game.id)" ng-click="updateSelection($event,game.id)" ng-model="ched"/>
+                                                                <label for="game{{game.id}}">{{ game.name }}</label>
                                                         </div>
                                                 </div>
                                         </div>
@@ -101,7 +97,7 @@
                                 <div class="form-group">
                                         <label class="col-sm-3 col-xs-3 control-label">&nbsp;</label>
                                         <div class="checkbox col-sm-9 col-xs-9">
-                                                <button type="submit" class="btn btn-success" ng-disabled="taskForm.taskTitle.invalid ||  taskForm.taskContent.$invalid">
+                                                <button type="submit" class="btn btn-success" ng-disabled="taskForm.taskTitle.$invalid ||  taskForm.taskContent.$invalid">
                                                     <i class="fa fa-check"></i>确定
                                                 </button>
                                         </div>
@@ -110,8 +106,8 @@
                 </div>
         </div>
 <!--导航条-->
-
 <!--公共js-->
+@@include('./footer.html')
 @@include('./js.html')
 <!--/公共js-->
 <script src='../js/bootstrap-datetimepicker.js'></script>
@@ -130,22 +126,19 @@ $('#datatime').datetimepicker({//日期
 });
 //angularjs begin
 var app = angular.module('taskAdd', []);
-app.controller('taskCtrl', function($scope){
+app.controller('taskCtrl', function($scope, $http){
 //数据优先级
-$scope.orderd = '高'
-$scope.orders = [{ id: 1, name: '高' }, { id: 2, name: '中' }, { id: 3, name: '低' }];
-//数据类型
-$scope.leixins = ["添加数据", "前端优化", "功能增加"];
+    $scope.orderd = '高'
+    $scope.orders = [{ id: 1, name: '高' }, { id: 2, name: '中' }, { id: 3, name: '低' }];
+    //数据类型
+    $scope.leixins = ["添加数据", "前端优化", "功能增加"];
+
 //checkbox
+    $http.get("../data/data-json.json")
+      .success(function (response) {
+        $scope.games = response.games;
+    });
 });
-
-
-//验证是否合理
-// $scope.taskOk = function(){
-
-// }
-
-
 </script>
 </body>
 </html>
