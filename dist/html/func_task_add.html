@@ -30,7 +30,12 @@
 <!--/公共头部-->
 
         <link rel="stylesheet" type="text/css" href="../css/checkbox.css">
-<body ng-controller="taskCtrl">
+        <style>
+            [ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{
+                display: none !important;
+            }
+        </style>
+<body ng-controller="taskCtrl" ng-cloak>
         <!--head-->
         <header class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
                 <div class="container">
@@ -214,6 +219,8 @@ $('#datatime').datetimepicker({//日期
     forceParse: 0
 });
 //angularjs begin
+
+
 var app = angular.module('taskAdd', []);
 app.controller('taskCtrl', function($scope, $http){
 //数据优先级

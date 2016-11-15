@@ -101,7 +101,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="todo in todos" ng-if="$odd" class="danger">
+
+                                <tr ng-repeat="todo in todos" ng-class-odd="'danger'" >
                                         <td>{{$index+1}}</td>
                                         <td>{{todo.date}}</td>
                                         <td>{{todo.money}}</td>
@@ -110,15 +111,7 @@
                                         <td>{{todo.log}}</td>
                                         <td>{{todo.payrate}}</td>
                                     </tr>
-                                    <tr ng-repeat="todo in todos" ng-if="$even">
-                                        <td>{{$index+1}}</td>
-                                        <td>{{todo.date}}</td>
-                                        <td>{{todo.money}}</td>
-                                        <td>{{todo.dele}}</td>
-                                        <td>{{todo.reg}}</td>
-                                        <td>{{todo.log}}</td>
-                                        <td>{{todo.payrate}}</td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
